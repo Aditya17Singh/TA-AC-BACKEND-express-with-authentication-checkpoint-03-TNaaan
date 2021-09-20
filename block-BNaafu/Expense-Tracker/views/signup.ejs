@@ -1,0 +1,31 @@
+<%include partials/header%>
+<main>
+  <fieldset>
+    <form action="/users/register" method="POST">
+      <input type="name" name="name" placeholder="Name" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="password" name="password" placeholder="Password" />
+      <input type="age" name="age" placeholder="age" />
+      <input type="phone" name="phone" placeholder="phone" />
+      <input type="country" name="country" placeholder="country" />
+      <input class="submit" type="submit" placeholder="submit" />
+    </form>
+  </fieldset>
+  <h3 class="or">OR</h3>
+  <section>
+    <div class="google-login">
+      <button class="btn">
+        <a href="">
+          <i class="fab fa-github"></i>
+          <span> Signup with Github </span>
+        </a>
+      </button>
+      <button class="btn">
+        <a href="">
+          <i class="fab fa-google"></i>
+          <span> Signup with Google </span>
+        </a>
+      </button>
+    </div>
+  </section>
+</main>
