@@ -15,10 +15,10 @@ router.get(
 
 router.get(
   "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/login" }),
+  passport.authenticate("github", { failureRedirect: "/users/login" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/users/dashboard");
+    res.redirect("/dashboard");
   }
 );
 
@@ -30,10 +30,10 @@ router.get(
 
 router.get(
   "/auth/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login" }),
+  passport.authenticate("google", { failureRedirect: "/users/login" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/users/dashboard");
+    res.redirect("/dashboard");
   }
 );
 

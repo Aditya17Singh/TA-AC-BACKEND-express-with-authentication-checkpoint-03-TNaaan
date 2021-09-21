@@ -278,15 +278,15 @@ input {
   color: gray;
 }
 .btn-primary {
-  margin-right: 3rem;
   background-color: #ebefed;
   border: 0;
-  padding: 1rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 3px;
+  margin-left: 1rem;
 }
 .btn-primary a {
   text-decoration: none;
-  color: #043638;
+  color: black;
 }
 .list {
   display: flex;
@@ -311,4 +311,8 @@ input {
   color: white;
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
+}
+.b {
+  font-size: 1rem;
+  color: black;
 }
