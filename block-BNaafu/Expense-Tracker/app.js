@@ -8,9 +8,13 @@ var MongoStore = require("connect-mongo");
 var session = require("express-session");
 var passport = require("passport");
 var flash = require("connect-flash");
+var bcrypt = require("bcryptjs");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var expenseRouter = require("./routes/Expense");
+var dashboardRouter = require("./routes/dashboard");
+var incomeRouter = require("./routes/income");
 var auth = require("./middleware/auth");
 
 require("dotenv").config();
@@ -53,6 +57,9 @@ app.use(flash());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/Expense", expenseRouter);
+app.use("/Income", incomeRouter);
+app.use("/dashboard", dashboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

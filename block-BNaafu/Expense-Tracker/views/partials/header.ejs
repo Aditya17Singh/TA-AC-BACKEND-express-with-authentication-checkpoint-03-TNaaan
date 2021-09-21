@@ -17,20 +17,25 @@
   </head>
   <body>
     <header class="header flex">
+      <% if(user) { %>
       <h1>
         <a href="/">
           <strong class="strong"> Expense Tracker </strong>
         </a>
       </h1>
-      <% if(user) { %>
       <nav>
         <ul>
           <li>
-            <a href=""> Log Out </a>
+            <a href="/users/logout"> Log Out </a>
           </li>
         </ul>
       </nav>
       <% } else{ %>
+      <h1>
+        <a href="/">
+          <strong class="strong"> Expense Tracker </strong>
+        </a>
+      </h1>
       <nav>
         <ul class="flex">
           <li class="login">

@@ -1,19 +1,33 @@
 var express = require("express");
-const app = require("../app");
-const auth = require("../middleware/auth");
 var router = express.Router();
 var User = require("../model/User");
-var passport = require("passport");
 var flash = require("connect-flash");
+const { locals } = require("../app");
+const { PreconditionFailed } = require("http-errors");
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.render("users");
 });
 
+router.get("/signup", (req, res, next) => {
+  res.render("signup", { error: req.flash("error")[0] });
+});
+router.post("/signup", (req, res, next) => {
+  User.create(req.body, (err, user) => {
+    if (err) {
+      if (err.name === "MongoError") {
+        req.flash("error", "This email is taken");
+        return res.redirect("/users/signup");
+      }
+      return res.json({ err });
+    }
+    res.redirect("/users/login");
+  });
+});
+
 router.get("/login", (req, res) => {
   var error = req.flash("error")[0];
-  console.log("Login page");
   res.render("login", { error });
 });
 
@@ -24,7 +38,6 @@ router.post("/login", (req, res, next) => {
     return res.redirect("/users/login");
   }
   User.findOne({ email }, (err, user) => {
-    console.log(req.body, user);
     if (err) return next(err);
     //no user
     if (!user) {
@@ -38,20 +51,8 @@ router.post("/login", (req, res, next) => {
       }
       //persisit logged in user info
       req.session.userId = user.id;
-      if (user === true) {
-        res.redirect("/users/dashboard");
-      }
+      res.redirect("/dashboard");
     });
-  });
-});
-
-router.use(auth.loggedInUser);
-
-router.use("/dashboard", (req, res, next) => {
-  let userId = req.session.userId;
-  User.findById(userId, (err, user) => {
-    if (err) return next(err);
-    res.render("dashboard", { user });
   });
 });
 

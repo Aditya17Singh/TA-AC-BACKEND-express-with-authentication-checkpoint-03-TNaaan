@@ -4,29 +4,28 @@ var GoogleStrategy = require("passport-google-oauth20").Strategy;
 var User = require("../model/User");
 
 passport.use(
-  new GitHubStrategy(
+  new GoogleStrategy(
     {
-      clientID: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "/auth/github/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/auth/google/callback",
     },
-    function (accessToken, refreshToken, profile, cb) {
+    function (token, tokenSecret, profile, cb) {
       console.log(profile);
       var email = profile._json.email;
-      var githubUser = {
+      var googleUser = {
         email: email,
         providers: [profile.provider],
-        github: {
+        google: {
           name: profile.displayName,
-          username: profile.username,
-          image: profile.photos[0].value,
+          username: profile.displayName,
         },
       };
-      User.findOne({ email: email }, (err, user) => {
-        console.log(err, user);
+      User.findOne({ email }, (err, user) => {
         if (err) return cb(err, false);
+        console.log(user, "chutiya");
         if (!user) {
-          User.create(githubUser, (err, addeduser) => {
+          User.create(googleUser, (err, addeduser) => {
             if (err) return cb(err, false);
             cb(null, addeduser);
           });
@@ -39,14 +38,34 @@ passport.use(
 );
 
 passport.use(
-  new GoogleStrategy(
+  new GitHubStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/auth/google/callback",
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: "/auth/github/callback",
     },
-    function (token, tokenSecret, profile, done) {
-      console.log(profile);
+    function (accessToken, refreshToken, profile, cb) {
+      var email = profile._json.email;
+      var githubUser = {
+        email: email,
+        providers: [profile.provider],
+        github: {
+          name: profile.displayName,
+          username: profile.username,
+          image: profile.photos[0].value,
+        },
+      };
+      User.findOne({ email: email }, (err, user) => {
+        if (err) return cb(err, false);
+        if (!user) {
+          User.create(githubUser, (err, addeduser) => {
+            if (err) return cb(err, false);
+            cb(null, addeduser);
+          });
+        } else {
+          cb(null, user);
+        }
+      });
     }
   )
 );
