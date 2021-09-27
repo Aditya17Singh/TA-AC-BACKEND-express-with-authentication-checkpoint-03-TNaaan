@@ -312,7 +312,65 @@ input {
   padding: 0.3rem 0.3rem;
   border-radius: 3px;
 }
-.b {
+.container {
+  margin: 0 auto;
+  max-width: 1100px;
+}
+.del {
+  display: none;
   font-size: 1rem;
+}
+.del:hover {
+  display: block;
+}
+.logout {
+  padding: 0.3rem 0.3rem;
+  background-color: red;
+}
+.dashb {
+  text-align: center;
+  display: flex;
+  padding: 0.4rem 1rem;
+  width: 150px;
+  margin-left: 35rem;
+}
+.dashb a {
+  margin-left: 0.5rem;
+}
+.form-control-1 input {
+  width: 10rem;
+  height: 1rem;
+}
+.form-control-1 {
+  width: 200px;
+  border: 1px solid gray;
+  padding: 1rem 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.submit-button {
+  color: #ff6a00;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10rem;
+}
+
+td,
+th {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 8px;
   color: black;
+}
+th {
+  font-weight: 700;
+}
+H4 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
 }

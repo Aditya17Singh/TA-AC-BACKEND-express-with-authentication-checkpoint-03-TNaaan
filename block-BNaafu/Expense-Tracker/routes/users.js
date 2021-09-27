@@ -51,7 +51,7 @@ router.post("/login", (req, res, next) => {
       }
       //persisit logged in user info
       req.session.userId = user.id;
-      res.redirect("/dashboard");
+      res.redirect("/");
     });
   });
 });

@@ -3,7 +3,7 @@ var router = express.Router();
 var Income = require("../model/Income");
 
 //create expense form
-router.get("/Income", (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("addIncome");
 });
 

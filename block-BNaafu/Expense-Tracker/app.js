@@ -55,10 +55,11 @@ app.use(passport.session());
 app.use(auth.userInfo);
 app.use(flash());
 
+app.use(auth.userInfo);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/Expense", expenseRouter);
-app.use("/Income", incomeRouter);
+app.use("/income", incomeRouter);
 app.use("/dashboard", dashboardRouter);
 
 // catch 404 and forward to error handler
