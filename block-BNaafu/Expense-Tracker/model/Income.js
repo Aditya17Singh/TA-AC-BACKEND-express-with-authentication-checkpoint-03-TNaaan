@@ -3,9 +3,9 @@ var Schema = mongoose.Schema;
 
 var incomeSchema = new Schema(
   {
-    source: { type: String },
+    category: { type: String },
     amount: Number,
-    Date: String,
+    date: { type: Date },
     userId: { type: Schema.Types.ObjectId, ref: "User", required: true },
     buget: { type: String },
   },

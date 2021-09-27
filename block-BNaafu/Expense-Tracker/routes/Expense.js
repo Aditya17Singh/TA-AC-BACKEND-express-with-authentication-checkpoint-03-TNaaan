@@ -3,7 +3,7 @@ var router = express.Router();
 var Expense = require("../model/Expense");
 
 //create expense form
-router.get("/new", (req, res, next) => {
+router.get("/", (req, res, next) => {
   res.render("addExpense");
 });
 

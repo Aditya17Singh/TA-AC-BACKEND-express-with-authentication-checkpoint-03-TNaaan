@@ -5,7 +5,7 @@ var expenseSchema = new Schema(
   {
     category: { type: String, require: true },
     amount: { type: Number },
-    Date: { type: String },
+    date: { type: Date },
     userId: { type: Schema.Types.ObjectId, ref: "User" },
     buget: { type: String },
   },
