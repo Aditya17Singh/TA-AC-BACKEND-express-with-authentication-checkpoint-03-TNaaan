@@ -11,10 +11,14 @@
         <input class="date-1" name="finaldate" type="date" />
         <input class="submit-button" type="submit" value="Find By Dates" />
       </form>
-      <div class="list-filter">
-        <span> Income </span>
-        <span> Expense </span>
-        <span> Current Month </span>
+      <div class="list-filter flex flex-start">
+        <div>
+          <span> <a class="inc" href="/dashboard/income"> Income </a> </span>
+          <span> <a class="inc" href="/dashboard/expense">Expense</a> </span>
+          <span>
+            <a class="inc" href="/dashboard"> Incomes And Expenses </a>
+          </span>
+        </div>
       </div>
       <div>
         <button class="btn-primary">
@@ -38,19 +42,19 @@
           </tr>
           <% budgetdata.forEach(elm => { %>
           <tr>
-            <td><%= moment(elm.date).format('YYYY/MM/DD') %></td>
+            <td><%= moment(elm.date).format('DD/MM/YYYY') %></td>
             <td><%= elm.buget %></td>
             <td><%= elm.category %></td>
-            <td><%= elm.amount %></td>
+            <td>💲 <%= elm.amount %></td>
           </tr>
           <% }); %>
         </table>
         <table class="container">
           <tr>
-            <th>Savnigs</th>
+            <th>Savings</th>
           </tr>
           <tr>
-            <td><%= savings %></td>
+            <td>💰<%= savings %></td>
           </tr>
         </table>
       </div>

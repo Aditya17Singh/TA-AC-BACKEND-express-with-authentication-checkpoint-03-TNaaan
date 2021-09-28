@@ -153,7 +153,7 @@ body {
 .flex {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 .flex-start {
   justify-content: flex-start;
@@ -195,7 +195,7 @@ body {
 }
 
 .wrapper {
-  height: 70vh;
+  height: 45vh;
   /*This part is important for centering*/
   display: flex;
   align-items: center;
@@ -278,7 +278,7 @@ input {
   color: gray;
 }
 .btn-primary {
-  background-color: #ebefed;
+  background-color: #04a956;
   border: 0;
   padding: 0.4rem 1rem;
   border-radius: 3px;
@@ -356,7 +356,6 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  margin-top: 10rem;
 }
 
 td,
@@ -365,6 +364,7 @@ th {
   text-align: center;
   padding: 8px;
   color: black;
+  border-radius: 4px;
 }
 th {
   font-weight: 700;
@@ -373,4 +373,8 @@ H4 {
   text-align: center;
   margin-top: 2rem;
   font-size: 2rem;
+}
+.list-filter a {
+  color: white;
+  text-decoration: none;
 }
