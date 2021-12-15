@@ -13,7 +13,7 @@ module.exports = {
       (req.session && req.session.userId) ||
       (req.session && req.session.passport && req.session.passport.user);
     if (userId) {
-      User.findById(userId, "name , email", (err, user) => {
+      User.findById(userId, "firstname , email", (err, user) => {
         if (err) return next(err);
         req.user = user;
         res.locals.user = user;

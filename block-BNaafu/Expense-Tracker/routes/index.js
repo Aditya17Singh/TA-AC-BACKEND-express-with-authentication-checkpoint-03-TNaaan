@@ -33,7 +33,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/users/login" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/dashboard");
+    res.redirect("/");
   }
 );
 

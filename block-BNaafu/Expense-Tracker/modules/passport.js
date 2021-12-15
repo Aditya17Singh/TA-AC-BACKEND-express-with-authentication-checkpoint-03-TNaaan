@@ -11,7 +11,6 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     function (token, tokenSecret, profile, cb) {
-      console.log(profile);
       var email = profile._json.email;
       var googleUser = {
         email: email,
@@ -23,7 +22,6 @@ passport.use(
       };
       User.findOne({ email }, (err, user) => {
         if (err) return cb(err, false);
-        console.log(user, "chutiya");
         if (!user) {
           User.create(googleUser, (err, addeduser) => {
             if (err) return cb(err, false);

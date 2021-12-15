@@ -25,14 +25,19 @@
       </h1>
       <nav>
         <ul>
-          <li>
+          <li class="flex flex-start">
+            <span>
+              <a class="flex flex-start user-name" href="">
+                <i class="fas fa-user-alt"></i>
+                <span class="use"> <%= user.firstname %> </span>
+              </a>
+            </span>
             <button class="btn logout">
               <a href="/users/logout"> Log Out </a>
             </button>
           </li>
         </ul>
       </nav>
-
       <% } else{ %>
       <h1>
         <a href="/">

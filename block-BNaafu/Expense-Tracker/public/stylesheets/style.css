@@ -286,7 +286,7 @@ input {
 }
 .btn-primary a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .list {
   display: flex;
@@ -339,15 +339,16 @@ input {
 }
 .form-control-1 input {
   width: 10rem;
-  height: 1rem;
+  display: unset;
+  margin-left: 1rem;
 }
 .form-control-1 {
-  width: 200px;
+  width: 420px;
   border: 1px solid gray;
   padding: 1rem 1rem;
   border-radius: 4px;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 .submit-button {
   color: #ff6a00;
@@ -377,4 +378,10 @@ H4 {
 .list-filter a {
   color: white;
   text-decoration: none;
+}
+.user-name {
+  margin-right: 1rem;
+}
+.use {
+  margin-left: 0.4rem;
 }
