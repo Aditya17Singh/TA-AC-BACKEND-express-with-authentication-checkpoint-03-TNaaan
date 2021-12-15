@@ -33,6 +33,8 @@ router.post("/filter", async (req, res, next) => {
   res.render("dashboard", { budgetdata, income, expenses, moment, savings });
 });
 
+//get income and expenses
+
 router.get("/", async (req, res, next) => {
   var budgetdata = [];
   var expenses = await Expense.find({ userId: req.user.id });
@@ -53,7 +55,6 @@ router.get("/", async (req, res, next) => {
 
 //Sort By Income
 router.get("/income", async (req, res, next) => {
-  console.log("iiiiiiiiiiiiii");
   var budgetdata = [];
   var expenses = await Expense.find({ userId: req.user.id });
   var income = await Income.find({ userId: req.user.id });
@@ -72,7 +73,6 @@ router.get("/income", async (req, res, next) => {
 
 //Sort By Expense
 router.get("/expense", async (req, res, next) => {
-  console.log("iiiiiiiiiiiiii");
   var budgetdata = [];
   var expenses = await Expense.find({ userId: req.user.id });
   budgetdata = budgetdata.concat(expenses);
